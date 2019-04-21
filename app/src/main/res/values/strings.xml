@@ -1,0 +1,49 @@
+<resources>
+    <string name="app_name">Conference</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">CurrentStatus</string>
+    <string name="displaymoney">your charges for registraton is: </string>
+    <string-array name="salutation_adapter">
+        <item>--None--</item>
+        <item>Doctor</item>
+        <item>Mr.</item>
+        <item>Mrs.</item>
+        <item>Professor</item>
+        <item>Student</item>
+
+
+    </string-array>
+    <string-array name="package_adapter">
+        <item>--None--</item>
+        <item>Full Registration</item>
+        <item>Student</item>
+        <item>Industry Delegate</item>
+
+
+    </string-array>
+    <string-array name="paymentInforItems">
+        <item>--None--</item>
+        <item>DD</item>
+        <item>Net Banking</item>
+    </string-array>
+    <string-array name="transport_adapter">
+        <item>--None--</item>
+        <item>Bus</item>
+        <item>Train</item>
+        <item>Flight</item>
+    </string-array>
+    <string-array name="accomadapter">
+        <item>--None--</item>
+        <item>Bussiness</item>
+        <item>Luxury</item>
+        <item>Economy</item>
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>

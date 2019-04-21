@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Registration.RegistrationStep1Fragment"
+    android:orientation="vertical">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Step 1"
+        android:textAlignment="center"
+        android:textSize="30dp"/>
+    <TextView
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textColor="@color/startblue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="22dp"
+        android:text="Email:"/>
+
+    <EditText
+        android:id="@+id/sec_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:hint="Enter Secondary Email:"
+        android:inputType="textEmailAddress"
+        android:textColor="@color/startblue"
+        android:textSize="22dp" />
+    <TextView
+        android:layout_marginTop="13dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textColor="@color/startblue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="22dp"
+        android:text="Contact:"/>
+
+    <EditText
+        android:id="@+id/sec_contact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:hint="Enter Secondary Mobile:"
+        android:inputType="phone"
+        android:textColor="@color/startblue"
+        android:textSize="22dp" />
+    <TextView
+        android:layout_marginTop="13dp"
+        android:layout_marginBottom="13dp"
+        android:textColor="@color/startblue"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_height="wrap_content"
+        android:text="Salutation:"
+        android:textSize="22dp"
+        android:id="@+id/salutation_title"/>
+    <Spinner
+        android:textColor="@color/startblue"
+        android:textSize="25dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:id="@+id/salutation_spinner"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:textColor="@color/startblue"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_height="wrap_content"
+        android:textSize="22dp"
+        android:text="Select appropriate package"/>
+    <Spinner
+        android:textColor="@color/startblue"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/package_selection_spinner"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24dp"
+            android:text="Amount: "
+            android:textColor="@color/startblue"
+            android:id="@+id/display"/>
+        <TextView
+            android:textSize="24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/amountDisplay"/>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="80dp">
+
+
+        <Button
+            android:layout_alignParentRight="true"
+            android:background="@drawable/buttonshape"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:textSize="25dp"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/save_page1"
+            android:text="Next"/>
+    </RelativeLayout>
+
+
+
+</LinearLayout>

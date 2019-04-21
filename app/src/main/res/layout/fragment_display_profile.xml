@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DisplayPRofileFragment"
+    android:orientation="vertical">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Basic Info"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:textSize="30dp"/>
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Name:"/>
+    <TextView
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="20dp"
+        android:textSize="17dp"
+        android:textColor="@android:color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/dname"/>
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Date of Birth:"/>
+    <TextView
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:textSize="17dp"
+        android:textColor="@android:color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ddob"/>
+    <TextView
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Email:"/>
+    <TextView
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="20dp"
+        android:layout_width="match_parent"
+        android:textSize="17dp"
+        android:textColor="@android:color/black"
+        android:id="@+id/demail"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="mobile"/>
+    <TextView
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="20dp"
+        android:layout_width="match_parent"
+        android:textSize="17dp"
+        android:textColor="@android:color/black"
+        android:layout_height="wrap_content"
+        android:id="@+id/dmobile"/>
+    <View
+        android:layout_margin="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/startblue" />
+</LinearLayout>
+</ScrollView>

@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".UserProfileAdmin"
+        android:orientation="vertical">
+
+        <!-- TODO: Update blank fragment layout -->
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Basic Info"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textSize="30dp"/>
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Name:"/>
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="20dp"
+            android:textSize="17dp"
+            android:textColor="@android:color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/adname"/>
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Date of Birth:"/>
+        <TextView
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="5dp"
+            android:textSize="17dp"
+            android:textColor="@android:color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/addob"/>
+        <TextView
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Email:"/>
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="20dp"
+            android:layout_width="match_parent"
+            android:textSize="17dp"
+            android:textColor="@android:color/black"
+            android:id="@+id/ademail"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="mobile"/>
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="20dp"
+            android:layout_width="match_parent"
+            android:textSize="17dp"
+            android:textColor="@android:color/black"
+            android:layout_height="wrap_content"
+            android:id="@+id/admobile"/>
+        <View
+            android:layout_margin="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/startblue" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Secondary Information"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textSize="30dp"/>
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Secondary Email:"/>
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="20dp"
+            android:layout_width="wrap_content"
+            android:textSize="17dp"
+            android:textColor="@android:color/black"
+            android:layout_height="wrap_content"
+            android:id="@+id/adsecemail"/>
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Secondary Contact Number:"/>
+        <TextView
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:textSize="17dp"
+            android:textColor="@android:color/black"
+            android:layout_height="wrap_content"
+            android:id="@+id/adsecmob"/>
+        <TextView
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Salutation:"/>
+
+        <TextView
+            android:id="@+id/adsalutation"
+            android:layout_width="match_parent"
+            android:textSize="17dp"
+            android:textColor="@android:color/black"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="5dp" />
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Package:"/>
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="20dp"
+            android:layout_width="match_parent"
+            android:textSize="17dp"
+            android:textColor="@android:color/black"
+            android:layout_height="wrap_content"
+            android:id="@+id/adpackage"/>
+        <View
+            android:layout_margin="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/startblue" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Payment Details"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textSize="30dp"/>
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mode of Payment:"/>
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="20dp"
+            android:textSize="17dp"
+            android:textColor="@android:color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/adpaymentmode"/>
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Transaction Id:"/>
+        <TextView
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:textSize="17dp"
+            android:textColor="@android:color/black"
+            android:layout_height="wrap_content"
+            android:id="@+id/adtransid"/>
+        <TextView
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Transaction Date:"/>
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="20dp"
+            android:layout_width="match_parent"
+            android:textSize="17dp"
+            android:textColor="@android:color/black"
+            android:id="@+id/adtransdate"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Name of Bank:"/>
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="20dp"
+            android:layout_width="match_parent"
+            android:textSize="17dp"
+            android:textColor="@android:color/black"
+            android:layout_height="wrap_content"
+            android:id="@+id/adbnkname"/>
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="IFSC code:"/>
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="20dp"
+            android:layout_width="match_parent"
+            android:textSize="17dp"
+            android:textColor="@android:color/black"
+            android:layout_height="wrap_content"
+            android:id="@+id/adifsccode"/>
+        <View
+            android:layout_margin="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/startblue" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Transportation Details"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textSize="30dp"/>
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mode of Transport:"/>
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="20dp"
+            android:textSize="17dp"
+            android:textColor="@android:color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/admodeoftrans"/>
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Date Of Arrival:"/>
+        <TextView
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="5dp"
+            android:textSize="17dp"
+            android:textColor="@android:color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/adarrival"/>
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Date Of Departure:"/>
+        <TextView
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="5dp"
+            android:textSize="17dp"
+            android:textColor="@android:color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/addepartur"/>
+        <TextView
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Accomodation Requirement:"/>
+        <TextView
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:textSize="17dp"
+            android:textColor="@android:color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/adaccomreq"
+            android:layout_marginBottom="30dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+
+            <Button
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:background="@drawable/buttonshape"
+                android:text="Reject"
+                android:id="@+id/adminReject"/>
+            <Button
+                android:layout_marginLeft="160dp"
+                android:layout_width="80dp"
+                android:background="@drawable/buttonshape"
+                android:layout_height="wrap_content"
+                android:text="Accept"
+                android:id="@+id/adminConfirm"
+                android:layout_marginBottom="20dp"
+                />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/apply"
+            android:title="Home"
+            android:icon="@drawable/ic_home_black_24dp"/>
+
+        <item
+            android:id="@+id/profile"
+            android:title="Profile"
+            android:icon="@drawable/person"
+            />
+        <item
+            android:id="@+id/EditPRofile"
+            android:title="Edit Profile"
+            android:icon="@drawable/ic_edit_black_24dp">
+
+        </item>
+
+        <item
+            android:id="@+id/Withdraw"
+            android:title="Withdraw"
+            android:icon="@drawable/ic_clear_black_24dp"
+            android:visible="false"></item>
+        <item
+            android:id="@+id/seeAllRequest"
+            android:title="View Requests"
+            android:icon="@drawable/ic_insert_chart_black_24dp"></item>
+
+        <item
+            android:id="@+id/logout"
+            android:title="Logout"
+            android:icon="@drawable/ic_power_settings_new_black_24dp">
+
+        </item>
+
+        <item
+            android:id="@+id/create_new_conf"
+            android:title="Update Conference Details"
+            android:visible="true"/>
+
+
+        <item
+            android:id="@+id/all_conf"
+            android:title="All conferences"
+            android:visible="false"/>
+    </group>
+
+
+</menu>
