@@ -10,16 +10,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.btp_iitj.cnfmanag.HelloBlank;
+import com.btp_iitj.cnfmanag.PanelistsFragment;
 import com.btp_iitj.cnfmanag.R;
 import com.btp_iitj.cnfmanag.Registration.RegistrationFragment;
 import com.btp_iitj.cnfmanag.Registration.RegistrationStep1Fragment;
 import com.btp_iitj.cnfmanag.Registration.RegistrationStep2Fragment;
 import com.btp_iitj.cnfmanag.Registration.RegistrationStep3Fragment;
+import com.btp_iitj.cnfmanag.acceptedRequests;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -43,7 +46,8 @@ import static com.btp_iitj.cnfmanag.Core.MainActivityTwo.registration;
 public class ConferenceDetailsFragment extends Fragment {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private static final String TAG = "Suppport";
-    public static TextView n,d,v,desc;
+    public static TextView n,d,v,desc,panno;
+    LinearLayout att,panelists;
     private static Button bL,bR;
     ProgressBar progressBar;
     public String checking;
@@ -66,6 +70,17 @@ public class ConferenceDetailsFragment extends Fragment {
         bL=view.findViewById(R.id.withdr);
         bR=view.findViewById(R.id.apply);
         progressBar.setVisibility(View.VISIBLE);
+        att=view.findViewById(R.id.attendieslayout);
+        panelists=view.findViewById(R.id.panelistslayout);
+        panno=view.findViewById(R.id.pannumber);
+
+        panelists.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fragmentManager=getActivity().getSupportFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.fragment_container,new PanelistsFragment()).addToBackStack(null).commit();
+            }
+        });
 
         db.collection("RegisteredUser")
                 .get()
@@ -93,6 +108,15 @@ public class ConferenceDetailsFragment extends Fragment {
             bR.setVisibility(View.INVISIBLE);
             bL.setVisibility(View.INVISIBLE);
         }
+        if("4pCRAPZeb5Ml9c3ADQfYStbojkK2".equals(userId)){
+            att.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    fragmentManager=getActivity().getSupportFragmentManager();
+                    fragmentManager.beginTransaction().replace(R.id.fragment_container,new acceptedRequests()).commit();
+                }
+            });
+        }
 
 //        String value = getArguments().getString("documentId");
         db.collection("RegisteredUser").document(userId)
@@ -115,7 +139,7 @@ public class ConferenceDetailsFragment extends Fragment {
                     }
                 });
 
-        DocumentReference docRef = db.collection("CONFERENCE").document("science");
+        final DocumentReference docRef = db.collection("CONFERENCE").document("science");
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -136,6 +160,7 @@ public class ConferenceDetailsFragment extends Fragment {
                         d.setText(conf.getDate());
                         v.setText(conf.getVenue());
                         desc.setText(conf.getDescription());
+                        panno.setText(document.getString("panelists"));
                         progressBar.setVisibility(View.INVISIBLE);
                         Log.d(TAG, "DocumentSnapshot data: " + document.getData());
                     } else {

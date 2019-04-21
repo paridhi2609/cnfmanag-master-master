@@ -1,9 +1,12 @@
 package com.btp_iitj.cnfmanag.Registration;
 
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.util.Log;
@@ -12,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,6 +33,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Pattern;
@@ -39,6 +44,8 @@ import static com.btp_iitj.cnfmanag.Core.MainActivityTwo.registration;
 public class RegistrationFragment extends Fragment {
     public static EditText name, dob, mobile, email;
     private FirebaseAuth mAuth;
+    public DatePickerDialog dpd;
+    public Calendar c;
     public TextView textView;
     public static Button save;
     private static final String TAG = "Suppport";
@@ -69,6 +76,25 @@ public class RegistrationFragment extends Fragment {
         save=view.findViewById(R.id.save_user);
 
         db=FirebaseFirestore.getInstance();
+        dob.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
+            @Override
+            public void onClick(View v) {
+                c=Calendar.getInstance();
+                int date=c.get(Calendar.DAY_OF_MONTH);
+                int month=c.get(Calendar.MONTH);
+                int year=c.get(Calendar.YEAR);
+                dpd=new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                        dob.setText(dayOfMonth+"/"+month+"/"+year);
+
+                    }
+                },date,month,year);
+
+                dpd.show();
+            }
+        });
         db.collection("RegisteredUser").document(userId)
                 .get()
                 .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {

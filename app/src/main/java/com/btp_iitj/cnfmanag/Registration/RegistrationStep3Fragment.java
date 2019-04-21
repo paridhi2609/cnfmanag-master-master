@@ -133,7 +133,7 @@ public class RegistrationStep3Fragment extends Fragment implements AdapterView.O
                 public void onClick(View v) {
                     c=Calendar.getInstance();
                     int date=c.get(Calendar.DAY_OF_MONTH);
-                    int month=c.get(Calendar.MONTH);
+                    int month=c.get(Calendar.MONTH)+1;
                     int year=c.get(Calendar.YEAR);
                     dpd=new DatePickerDialog(getActivity(),new DatePickerDialog.OnDateSetListener() {
                         @Override

@@ -22,6 +22,7 @@ import com.btp_iitj.cnfmanag.Conference.AddConference;
 import com.btp_iitj.cnfmanag.Conference.ConferenceDetailsFragment;
 import com.btp_iitj.cnfmanag.Conference.aboutConferenceFragment;
 import com.btp_iitj.cnfmanag.Conference.allConferencesFragment;
+import com.btp_iitj.cnfmanag.ContactsFragment;
 import com.btp_iitj.cnfmanag.DisplayPRofileFragment;
 import com.btp_iitj.cnfmanag.Domain_Classes.Conference;
 import com.btp_iitj.cnfmanag.Domain_Classes.Registration;
@@ -33,6 +34,7 @@ import com.btp_iitj.cnfmanag.R;
 import com.btp_iitj.cnfmanag.Registration.RegistrationStep1Fragment;
 import com.btp_iitj.cnfmanag.Registration.RegistrationStep3Fragment;
 import com.btp_iitj.cnfmanag.ViewProfileFragment;
+import com.btp_iitj.cnfmanag.acceptedRequests;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -209,6 +211,10 @@ public class MainActivityTwo extends AppCompatActivity
         else if(id==R.id.seeAllRequest){
             fragmentManager =getSupportFragmentManager();
             fragmentManager.beginTransaction().replace(R.id.fragment_container,new AdminDashboard()).commit();
+        }
+       else if(id==R.id.contactuss){
+            fragmentManager=getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.fragment_container,new ContactsFragment()).addToBackStack(null).commit();
         }
         ///do for get current user
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

@@ -22,6 +22,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Calendar;
@@ -68,7 +69,7 @@ public class RegistrationStep1Fragment extends Fragment implements AdapterView.O
         secMob=view.findViewById(R.id.sec_contact);
        // prev=view.findViewById(R.id.prev);
         secEmail=view.findViewById(R.id.sec_email);
-        Spinner spinner = (Spinner) view.findViewById(R.id.salutation_spinner);
+        final Spinner spinner = (Spinner) view.findViewById(R.id.salutation_spinner);
         spinner.setOnItemSelectedListener(this);
 // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(),
@@ -78,7 +79,7 @@ public class RegistrationStep1Fragment extends Fragment implements AdapterView.O
 // Apply the adapter to the spinner
         spinner.setAdapter(adapter);
 
-        Spinner spinner2 = (Spinner) view.findViewById(R.id.package_selection_spinner);
+        final Spinner spinner2 = (Spinner) view.findViewById(R.id.package_selection_spinner);
         spinner2.setOnItemSelectedListener(this);
         ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(getActivity(),
                 R.array.package_adapter, android.R.layout.simple_spinner_item);
@@ -88,6 +89,21 @@ public class RegistrationStep1Fragment extends Fragment implements AdapterView.O
         registration.setSecmob(secMob.getText().toString());
 
         db=FirebaseFirestore.getInstance();
+        db.collection("RegisteredUser").document(userId)
+                .get()
+                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        if(documentSnapshot.exists()){
+
+                            secEmail.setText(documentSnapshot.getString("secEmail"));
+                            secMob.setText(documentSnapshot.getString("secMob"));
+                            spinner.setSelection(1);
+                            spinner2.setSelection(0);
+
+                        }
+                    }
+                });
 
 
 
@@ -141,6 +157,7 @@ public class RegistrationStep1Fragment extends Fragment implements AdapterView.O
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String str="0 Rs";
         str=parent.getItemAtPosition(position).toString();
+        money="0";
         //textView.setText(str);
         Spinner spin = (Spinner)parent;
         Spinner spin2 = (Spinner)parent;

@@ -25,7 +25,9 @@ import android.widget.Toast;
 import com.btp_iitj.cnfmanag.Core.MainActivityTwo;
 import com.btp_iitj.cnfmanag.MainActivity;
 import com.btp_iitj.cnfmanag.R;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Calendar;
@@ -78,6 +80,7 @@ public class RegistrationStep2Fragment extends Fragment implements AdapterView.O
         n=view.findViewById(R.id.numda);
         d=view.findViewById(R.id.numdays);
         numdays=d.getText().toString();
+        final RadioGroup radioGroup = (RadioGroup) view.findViewById(R.id.radio_group);
 
 
         FirebaseAuth kAuth;
@@ -101,10 +104,26 @@ public class RegistrationStep2Fragment extends Fragment implements AdapterView.O
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 // Apply the adapter to the spinner
         spinner2.setAdapter(adapter2);
-        t.setVisibility(View.INVISIBLE);
-        spinner2.setVisibility(View.INVISIBLE);
-        n.setVisibility(View.INVISIBLE);
-        d.setVisibility(View.INVISIBLE);
+        db=FirebaseFirestore.getInstance();
+        db.collection("RegisteredUser").document(userId)
+                .get()
+                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        if(documentSnapshot.exists()){
+                            date1.setText(documentSnapshot.getString("ArrivalDate"));
+                            date2.setText(documentSnapshot.getString("DepartureDate"));
+                            spinner.setSelection(1);
+                            spinner2.setSelection(1);
+                            radioGroup.check(R.id.no);
+
+                        }
+                    }
+                });
+        t.setVisibility(View.GONE);
+        spinner2.setVisibility(View.GONE);
+        n.setVisibility(View.GONE);
+        d.setVisibility(View.GONE);
         datePIcker=view.findViewById(R.id.datePickr);
         departDate=view.findViewById(R.id.departureDate);
         datePIcker.setOnClickListener(new View.OnClickListener() {
@@ -113,13 +132,13 @@ public class RegistrationStep2Fragment extends Fragment implements AdapterView.O
             public void onClick(View v) {
                 c=Calendar.getInstance();
                 int date=c.get(Calendar.DAY_OF_MONTH);
-                int month=c.get(Calendar.MONTH);
+                int month=c.get(Calendar.MONTH)+1;
                 int year=c.get(Calendar.YEAR);
                 dpd=new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
 
-                        registration.setArrDate(dayOfMonth+"/"+month+"/"+year);
+                        registration.setArrDate(dayOfMonth+"/"+month+1+"/"+year);
                         date1.setText(registration.getArrDate());
 
                     }
@@ -134,7 +153,7 @@ public class RegistrationStep2Fragment extends Fragment implements AdapterView.O
             public void onClick(View v) {
                 c2=Calendar.getInstance();
                 int date=c2.get(Calendar.DAY_OF_MONTH);
-                int month=c2.get(Calendar.MONTH);
+                int month=c2.get(Calendar.MONTH)+1;
                 int year=c2.get(Calendar.YEAR);
                 dpd2=new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
                     @Override
@@ -149,7 +168,7 @@ public class RegistrationStep2Fragment extends Fragment implements AdapterView.O
                 dpd2.show();
             }
         });
-        RadioGroup radioGroup = (RadioGroup) view.findViewById(R.id.radio_group);
+
         nxt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -276,12 +295,15 @@ public class RegistrationStep2Fragment extends Fragment implements AdapterView.O
                     //amount="6000";
                     //int temp=6000*Integer.parseInt(numdays)+8000;
                     // amnt.setText(String.valueOf(temp));
+                    amnt.setText("1");
                 } else if ("Luxury".equals(info)) {
                     //amount="4000";
+                    amnt.setText("2");
                     //int temp=4000*Integer.parseInt(numdays)+8000;
                     //amnt.setText(String.valueOf(temp));
                 } else if ("Economy".equals(info)) {
                     // amount="2000";
+                    amnt.setText("3");
                     //int temp=6000*Integer.parseInt(numdays)+8000;
                     //amnt.setText(String.valueOf(temp));
                 } else {

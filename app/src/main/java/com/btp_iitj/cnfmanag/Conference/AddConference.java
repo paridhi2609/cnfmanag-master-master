@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.btp_iitj.cnfmanag.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
@@ -22,7 +23,7 @@ import java.util.Map;
 import static com.btp_iitj.cnfmanag.Core.MainActivityTwo.conf;
 
 public class AddConference extends Fragment {
-    private EditText name, venue, date, description;
+    private EditText name, venue, date, description,panelists;
     private Button save;
     private FirebaseFirestore db;
 
@@ -41,7 +42,24 @@ public class AddConference extends Fragment {
         venue = view.findViewById(R.id.venue);
         date = view.findViewById(R.id.date);
         description = view.findViewById(R.id.description);
+        panelists=view.findViewById(R.id.panelists);
         save = view.findViewById(R.id.SaveConf);
+        db=FirebaseFirestore.getInstance();
+        db.collection("CONFERENCE").document("science")
+                .get()
+                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        if(documentSnapshot.exists()){
+                            name.setText(documentSnapshot.getString("name"));
+                            date.setText(documentSnapshot.getString("date"));
+                            venue.setText(documentSnapshot.getString("venue"));
+                            description.setText(documentSnapshot.getString("description"));
+                            panelists.setText(documentSnapshot.getString("panelists"));
+
+                        }
+                    }
+                });
 
 
         save.setOnClickListener(new View.OnClickListener() {
@@ -81,6 +99,7 @@ public class AddConference extends Fragment {
                     conference.put("venue", conf.getVenue());
                     conference.put("date", conf.getDate());
                     conference.put("description", conf.getDescription());
+                    conference.put("panelists",panelists.getText().toString());
                     Toast.makeText(getActivity(), "Data successfully Saved", Toast.LENGTH_SHORT).show();
 
 

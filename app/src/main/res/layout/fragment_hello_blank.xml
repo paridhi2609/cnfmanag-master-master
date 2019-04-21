@@ -17,12 +17,11 @@
     <TextView
         android:id="@+id/fstatus"
         android:gravity="center"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginLeft="20dp"
         android:layout_marginTop="0dp"
-        android:layout_marginRight="20dp"
         android:textAlignment="center"
         android:textSize="30dp"
         android:textStyle="bold" />

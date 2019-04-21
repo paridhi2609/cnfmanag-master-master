@@ -1,6 +1,7 @@
 package com.btp_iitj.cnfmanag;
 
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -49,6 +50,7 @@ public class HelloBlank extends Fragment {
         db.collection("RegisteredUser").document(userId)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @SuppressLint("WrongConstant")
                     @Override
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                         if (task.isSuccessful()) {
@@ -71,6 +73,9 @@ public class HelloBlank extends Fragment {
                                 else if("N".equals(checking)){
                                     textView.setText("You have not yet applied for a Seat in Conference");
                                     //Toast.makeText(MainActivityTwo.this, "You have not applied for a Seat in Conference", Toast.LENGTH_SHORT).show();
+                                }
+                                else if("withdrawen".equals(checking)){
+                                    textView.setText("Application withdrawn!");
                                 }
                                   progressBar.setVisibility(View.GONE);
 

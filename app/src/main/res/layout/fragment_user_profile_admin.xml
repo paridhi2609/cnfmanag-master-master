@@ -302,14 +302,18 @@
 
 
             <Button
+                android:layout_marginLeft="40dp"
+                android:textSize="18sp"
                 android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
                 android:background="@drawable/buttonshape"
+                android:layout_height="wrap_content"
                 android:text="Reject"
-                android:id="@+id/adminReject"/>
+                android:id="@+id/adminReject"
+                android:layout_marginBottom="20dp"
+                />
             <Button
                 android:layout_marginLeft="160dp"
+                android:textSize="18sp"
                 android:layout_width="80dp"
                 android:background="@drawable/buttonshape"
                 android:layout_height="wrap_content"
