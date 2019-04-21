@@ -122,25 +122,29 @@ android:layout_height="match_parent">
 
 
         <Button
-            android:layout_margin="20dp"
-            android:layout_width="150dp"
-            android:background="@drawable/buttonshape"
-            android:textColor="#ffffff"
-            android:layout_height="wrap_content"
-            android:textSize="25dp"
-            android:layout_alignParentLeft="true"
             android:id="@+id/finalBack"
-            android:text="Prev"/>
-        <Button
-            android:layout_margin="20dp"
-            android:textColor="#ffffff"
             android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
             android:background="@drawable/buttonshape"
+            android:text="Prev"
+            android:textColor="#ffffff"
+            android:textSize="22sp" />
+
+        <Button
+            android:id="@+id/finalSubmit"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:textSize="30dp"
-            android:id="@+id/finalSubmit"
-            android:text="Request"/>
+            android:layout_margin="20dp"
+            android:background="@drawable/buttonshape"
+            android:text="Request"
+            android:textColor="#ffffff"
+            android:textSize="22sp" />
 
 
     </RelativeLayout>

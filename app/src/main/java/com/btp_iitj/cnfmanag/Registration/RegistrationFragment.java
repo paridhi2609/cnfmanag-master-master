@@ -79,11 +79,10 @@ public class RegistrationFragment extends Fragment {
                             dob.setText(documentSnapshot.getString("dob"));
                             email.setText(documentSnapshot.getString("email"));
                             mobile.setText(documentSnapshot.getString("phone"));
+
                         }
                     }
                 });
-
-
 
 
 
@@ -115,6 +114,7 @@ public class RegistrationFragment extends Fragment {
                 else
                 {
 
+
                     registration.setName(name.getText().toString());
                     registration.setDob(dob.getText().toString());
                     registration.setEmail(email.getText().toString());
@@ -129,6 +129,20 @@ public class RegistrationFragment extends Fragment {
                     myuser.put("RequestStatus", "N");
                     //String dalna;
                     //dalna = mAuth.getCurrentUser().getUid();
+                    db.collection("RegisteredUser").document(userId)
+                            .set(myuser)
+                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    //Log.d(TAG, "DocumentSnapshot successfully written!");
+                                }
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    //Log.w(TAG, "Error writing document", e);
+                                }
+                            });
                     db.collection("RegisteredUser").document(userId)
                             .update(myuser);
                     //myuser.put("conferenceRegisteresId", conf.getName());

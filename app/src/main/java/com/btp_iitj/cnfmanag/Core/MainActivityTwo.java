@@ -13,6 +13,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,6 +45,7 @@ public class MainActivityTwo extends AppCompatActivity
     private FirebaseFirestore db;
     public String status;
     public TextView textView;
+    public Button withdraw, apply;
     public static FragmentManager fragmentManager;
     public static User user = new User();
     public static Registration registration = new Registration();
@@ -52,6 +54,10 @@ public class MainActivityTwo extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FirebaseAuth kAuth;
+        kAuth=FirebaseAuth.getInstance();
+        final String userId=kAuth.getCurrentUser().getUid();
+
         setContentView(R.layout.activity_main_two);
         textView=findViewById(R.id.statusInformation);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -68,6 +74,18 @@ public class MainActivityTwo extends AppCompatActivity
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        if("4pCRAPZeb5Ml9c3ADQfYStbojkK2".equals(userId)){
+            navigationView.getMenu().findItem(R.id.profile).setVisible(false);
+            navigationView.getMenu().findItem(R.id.EditPRofile).setVisible(false);
+            navigationView.getMenu().findItem(R.id.seeAllRequest).setVisible(true);
+            navigationView.getMenu().findItem(R.id.create_new_conf).setVisible(true);
+        }
+        else{
+            navigationView.getMenu().findItem(R.id.profile).setVisible(true);
+            navigationView.getMenu().findItem(R.id.EditPRofile).setVisible(true);
+            navigationView.getMenu().findItem(R.id.seeAllRequest).setVisible(false);
+            navigationView.getMenu().findItem(R.id.create_new_conf).setVisible(false);
+        }
         navigationView.setNavigationItemSelectedListener(this);
     }
 

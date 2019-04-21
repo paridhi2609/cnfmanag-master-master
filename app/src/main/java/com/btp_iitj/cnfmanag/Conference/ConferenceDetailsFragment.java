@@ -66,6 +66,7 @@ public class ConferenceDetailsFragment extends Fragment {
         bL=view.findViewById(R.id.withdr);
         bR=view.findViewById(R.id.apply);
         progressBar.setVisibility(View.VISIBLE);
+
         db.collection("RegisteredUser")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -88,7 +89,32 @@ public class ConferenceDetailsFragment extends Fragment {
         FirebaseAuth kAuth;
         kAuth=FirebaseAuth.getInstance();
         final String userId=kAuth.getCurrentUser().getUid();
+        if("4pCRAPZeb5Ml9c3ADQfYStbojkK2".equals(userId)){
+            bR.setVisibility(View.INVISIBLE);
+            bL.setVisibility(View.INVISIBLE);
+        }
+
 //        String value = getArguments().getString("documentId");
+        db.collection("RegisteredUser").document(userId)
+                .get()
+                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        checking=documentSnapshot.getString("RequestStatus");
+                        Log.d("paridhi shreenath","hey yoj both do you knwo each other");
+                        if("withdrawen".equals(checking)||"N".equals(checking)){
+                            Log.d("paridhi shreenath","hey yoj both do you knwo each other");
+                            bL.setVisibility(View.INVISIBLE);
+                            bR.setVisibility(View.VISIBLE);
+                        }
+                        else if("R".equals(checking)||"Y".equals(checking)){
+                            bR.setVisibility(View.INVISIBLE);
+                            bL.setVisibility(View.VISIBLE);
+
+                        }
+                    }
+                });
+
         DocumentReference docRef = db.collection("CONFERENCE").document("science");
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
@@ -140,6 +166,7 @@ public class ConferenceDetailsFragment extends Fragment {
                             }
                         });
                 if("withdrawen".equals(checking)||"N".equals(checking)){
+
                     //fragmentManager.beginTransaction().replace(R.id.fragment_container,new RegistrationStep1Fragment()).commit();
                     Toast.makeText(getActivity(), "Not Yet Applied or already Withdrawen!", Toast.LENGTH_SHORT).show();
                 }
@@ -150,6 +177,8 @@ public class ConferenceDetailsFragment extends Fragment {
                     //ar String value=getArguments().getString("username");
                     db.collection("RegisteredUser").document(userId)
                             .update(myuser);
+                    bR.setVisibility(View.VISIBLE);
+                    bL.setVisibility(View.INVISIBLE);
                     Toast.makeText(getActivity(), "Withdrawn!", Toast.LENGTH_SHORT).show();
                 }
 

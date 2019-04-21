@@ -30,6 +30,11 @@
             android:id="@+id/seeAllRequest"
             android:title="View Requests"
             android:icon="@drawable/ic_insert_chart_black_24dp"></item>
+        <item
+            android:id="@+id/create_new_conf"
+            android:title="Update Conference Details"
+            android:visible="true"
+            android:icon="@drawable/ic_edit_black_24dp"/>
 
         <item
             android:id="@+id/logout"
@@ -38,10 +43,7 @@
 
         </item>
 
-        <item
-            android:id="@+id/create_new_conf"
-            android:title="Update Conference Details"
-            android:visible="true"/>
+
 
 
         <item
