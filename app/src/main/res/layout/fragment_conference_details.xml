@@ -128,13 +128,28 @@
             android:layout_marginRight="20dp"
             android:layout_marginTop="20dp"
             android:textAlignment="textStart">
-
-            <TextView
-                android:id="@+id/descDescription"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:textSize="18dp" />
+                android:layout_height="270dp">
+                <ProgressBar
+                    android:layout_marginTop="40dp"
+                    android:layout_gravity="center"
+                    android:id="@+id/progressbr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/descDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:textSize="18dp" />
+
+            </RelativeLayout>
+
         </ScrollView>
 
 

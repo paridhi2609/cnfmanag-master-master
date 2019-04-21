@@ -69,6 +69,20 @@ public class RegistrationFragment extends Fragment {
         save=view.findViewById(R.id.save_user);
 
         db=FirebaseFirestore.getInstance();
+        db.collection("RegisteredUser").document(userId)
+                .get()
+                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        if(documentSnapshot.exists()){
+                            name.setText(documentSnapshot.getString("name"));
+                            dob.setText(documentSnapshot.getString("dob"));
+                            email.setText(documentSnapshot.getString("email"));
+                            mobile.setText(documentSnapshot.getString("phone"));
+                        }
+                    }
+                });
+
 
 
 
@@ -77,6 +91,7 @@ public class RegistrationFragment extends Fragment {
 
         save.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+
                 if(name.getText().toString().isEmpty()){
                     name.setError("Name is Required");
                     name.requestFocus();
@@ -114,21 +129,8 @@ public class RegistrationFragment extends Fragment {
                     myuser.put("RequestStatus", "N");
                     //String dalna;
                     //dalna = mAuth.getCurrentUser().getUid();
-                    docref = db.collection("RegisteredUser").document(userId);
                     db.collection("RegisteredUser").document(userId)
-                            .set(myuser)
-                            .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                @Override
-                                public void onSuccess(Void aVoid) {
-                                    //Log.d(TAG, "DocumentSnapshot successfully written!");
-                                }
-                            })
-                            .addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    //Log.w(TAG, "Error writing document", e);
-                                }
-                            });
+                            .update(myuser);
                     //myuser.put("conferenceRegisteresId", conf.getName());
 
                     //final String id=docref.getId();

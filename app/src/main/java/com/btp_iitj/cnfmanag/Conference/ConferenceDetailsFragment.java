@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,6 +45,7 @@ public class ConferenceDetailsFragment extends Fragment {
     private static final String TAG = "Suppport";
     public static TextView n,d,v,desc;
     private static Button bL,bR;
+    ProgressBar progressBar;
     public String checking;
     public static FragmentManager fragmentManager;
     public static TextView countView;
@@ -60,8 +62,10 @@ public class ConferenceDetailsFragment extends Fragment {
 
         View view= inflater.inflate(R.layout.fragment_conference_details, container, false);
         countView=view.findViewById(R.id.attendents);
+        progressBar=view.findViewById(R.id.progressbr);
         bL=view.findViewById(R.id.withdr);
         bR=view.findViewById(R.id.apply);
+        progressBar.setVisibility(View.VISIBLE);
         db.collection("RegisteredUser")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -106,6 +110,7 @@ public class ConferenceDetailsFragment extends Fragment {
                         d.setText(conf.getDate());
                         v.setText(conf.getVenue());
                         desc.setText(conf.getDescription());
+                        progressBar.setVisibility(View.INVISIBLE);
                         Log.d(TAG, "DocumentSnapshot data: " + document.getData());
                     } else {
                         Log.d(TAG, "No such document");
