@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,6 +46,7 @@ public class RegistrationStep2Fragment extends Fragment implements AdapterView.O
 
     public Calendar c;
     public String accomRe;
+    public String c1;
     public  Calendar c2;
     public String userId;
     String primaryAmount;
@@ -77,11 +79,10 @@ public class RegistrationStep2Fragment extends Fragment implements AdapterView.O
         date2=view.findViewById(R.id.datetwo);
         t=view.findViewById(R.id.accomTypetext);
         amnt=view.findViewById(R.id.twoamountDisplay);
-        n=view.findViewById(R.id.numda);
-        d=view.findViewById(R.id.numdays);
-        numdays=d.getText().toString();
+        //n=view.findViewById(R.id.numda);
+        //d=view.findViewById(R.id.numdays);
+        //numdays=d.getText().toString();
         final RadioGroup radioGroup = (RadioGroup) view.findViewById(R.id.radio_group);
-
 
         FirebaseAuth kAuth;
         kAuth=FirebaseAuth.getInstance();
@@ -122,8 +123,8 @@ public class RegistrationStep2Fragment extends Fragment implements AdapterView.O
                 });
         t.setVisibility(View.GONE);
         spinner2.setVisibility(View.GONE);
-        n.setVisibility(View.GONE);
-        d.setVisibility(View.GONE);
+//        n.setVisibility(View.GONE);
+  //      d.setVisibility(View.GONE);
         datePIcker=view.findViewById(R.id.datePickr);
         departDate=view.findViewById(R.id.departureDate);
         datePIcker.setOnClickListener(new View.OnClickListener() {
@@ -251,8 +252,8 @@ public class RegistrationStep2Fragment extends Fragment implements AdapterView.O
                         registration.setAccomodation("Y");
                         t.setVisibility(View.VISIBLE);
                         spinner2.setVisibility(View.VISIBLE);
-                        n.setVisibility(View.VISIBLE);
-                        d.setVisibility(View.VISIBLE);
+                        //n.setVisibility(View.VISIBLE);
+                        //d.setVisibility(View.VISIBLE);
                         accomRe="Y";
                         //view.findViewById(R.id.accomTypetext);
                         //Toast.makeText(getActivity(), "Yes selected", Toast.LENGTH_SHORT).show();
@@ -261,9 +262,9 @@ public class RegistrationStep2Fragment extends Fragment implements AdapterView.O
                         // Fragment 2
                         t.setVisibility(View.GONE);
                         spinner2.setVisibility(View.GONE);
-                        n.setVisibility(View.GONE);
+                        //n.setVisibility(View.GONE);
                         accomRe="N";
-                        d.setVisibility(View.GONE);
+                        //d.setVisibility(View.GONE);
                         registration.setAccomodation("N");
                         //Toast.makeText(getActivity(), "NO selected", Toast.LENGTH_SHORT).show();
                         break;
@@ -284,31 +285,45 @@ public class RegistrationStep2Fragment extends Fragment implements AdapterView.O
 
         {
             info=str;
+
+            String c2="0";
+            //c1="5000";
+           // int n=Integer.parseInt(numdays);
+
             ////define categories
             if("N".equals(accomRe)){
                 //pichhle wale frament se data uthana hai
+                Log.d("pari1","N");
+                amnt.setText("5,000");
 
 
             }
-            else if("R".equals(accomRe)) {
+            else if("Y".equals(accomRe)) {
+                Log.d("pari1","Y");
                 if ("Bussiness".equals(info)) {
-                    //amount="6000";
+
+                    c2="6000";
                     //int temp=6000*Integer.parseInt(numdays)+8000;
                     // amnt.setText(String.valueOf(temp));
-                    amnt.setText("1");
+                    amnt.setText("12,000");
                 } else if ("Luxury".equals(info)) {
-                    //amount="4000";
-                    amnt.setText("2");
+                    c2="4000";
+                    amnt.setText("14,000");
                     //int temp=4000*Integer.parseInt(numdays)+8000;
                     //amnt.setText(String.valueOf(temp));
                 } else if ("Economy".equals(info)) {
-                    // amount="2000";
-                    amnt.setText("3");
+                    c2="2000";
+                    amnt.setText("9,000");
                     //int temp=6000*Integer.parseInt(numdays)+8000;
                     //amnt.setText(String.valueOf(temp));
                 } else {
+                    c2="0";
+                    amnt.setText("6,000");
                     //amnt.setText("0");
                 }
+
+               // amnt.setText();
+
             }
 
 

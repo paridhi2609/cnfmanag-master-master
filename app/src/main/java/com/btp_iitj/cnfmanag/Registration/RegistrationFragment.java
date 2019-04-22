@@ -76,25 +76,7 @@ public class RegistrationFragment extends Fragment {
         save=view.findViewById(R.id.save_user);
 
         db=FirebaseFirestore.getInstance();
-        dob.setOnClickListener(new View.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.N)
-            @Override
-            public void onClick(View v) {
-                c=Calendar.getInstance();
-                int date=c.get(Calendar.DAY_OF_MONTH);
-                int month=c.get(Calendar.MONTH);
-                int year=c.get(Calendar.YEAR);
-                dpd=new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        dob.setText(dayOfMonth+"/"+month+"/"+year);
 
-                    }
-                },date,month,year);
-
-                dpd.show();
-            }
-        });
         db.collection("RegisteredUser").document(userId)
                 .get()
                 .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
